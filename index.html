@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Flopping Bird</title>
+  <title>Flopping Bird: CHAOS EDITION</title>
   <style>
     * {
       margin: 0;
@@ -15,8 +15,8 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000;
+      font-family: 'Impact', sans-serif;
       overflow: hidden;
     }
     #gameContainer {
@@ -24,38 +24,38 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
     }
     #gameCanvas {
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(78, 205, 196, 0.2);
+      border: 4px solid white;
+      border-radius: 4px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
     }
     #score {
       position: absolute;
-      top: 20px;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 48px;
+      font-size: 64px;
       font-weight: bold;
       color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(78, 205, 196, 0.5);
+      text-shadow: 4px 4px 0px #000;
+      z-index: 10;
+      pointer-events: none;
+    }
+    #highScore {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: yellow;
+      text-shadow: 2px 2px 0px #000;
       z-index: 10;
       pointer-events: none;
     }
     #instructions {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 14px;
-      text-align: center;
-    }
-    #highScore {
-      position: absolute;
-      top: 70px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.6);
-      z-index: 10;
-      pointer-events: none;
+      display: none; /* Handled in canvas now */
     }
   </style>
 </head>
@@ -64,7 +64,6 @@
     <div id="score">0</div>
     <div id="highScore">Best: 0</div>
     <canvas id="gameCanvas"></canvas>
-    <div id="instructions">Click or press Space to flop!</div>
   </div>
   <script src="game.js"></script>
 </body>
